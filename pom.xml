@@ -382,6 +382,12 @@
             <artifactId>slf4j-log4j12</artifactId>
             <version>1.7.25</version>
             <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <artifactId>slf4j-api</artifactId>
+                    <groupId>org.slf4j</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <dependency>
@@ -402,7 +408,7 @@
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
-            <version>1.2.15</version>
+            <version>1.2.17</version>
             <exclusions>
                 <exclusion>
                     <groupId>com.sun.jmx</groupId>
@@ -460,6 +466,7 @@
         </dependency>
 
 
+
     </dependencies>
 
     <build>
@@ -477,11 +484,6 @@
         </plugins>
     </build>
     <distributionManagement>
-        <!--<repository>-->
-            <!--<id>third-part-maven-repostory</id>-->
-            <!--<name>User Project repostory</name>-->
-            <!--<url> http://mvnrepository.com/</url>-->
-        <!--</repository>-->
         <repository>
             <id>local-nexus-releases</id>
             <name>User Project Release</name>
