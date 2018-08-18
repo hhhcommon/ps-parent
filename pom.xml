@@ -107,12 +107,12 @@
         <dependency>
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper</artifactId>
-            <version>5.1.4</version>
+            <version>4.0.0</version>
         </dependency>
         <dependency>
             <groupId>com.github.jsqlparser</groupId>
             <artifactId>jsqlparser</artifactId>
-            <version>1.0</version>
+            <version>0.9.1</version>
         </dependency>
         <dependency>
             <groupId>ch.qos.logback</groupId>
@@ -354,6 +354,11 @@
                     <artifactId>guava</artifactId>
                     <groupId>com.google.guava</groupId>
                 </exclusion>
+                <exclusion>
+                    <artifactId>zookeeper</artifactId>
+                    <groupId>org.apache.zookeeper</groupId>
+                </exclusion>
+
             </exclusions>
         </dependency>
 
@@ -388,6 +393,12 @@
                     <groupId>org.slf4j</groupId>
                 </exclusion>
             </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.logback-extensions</groupId>
+            <artifactId>logback-ext-spring</artifactId>
+            <version>0.1.4</version>
         </dependency>
 
         <dependency>
@@ -464,10 +475,19 @@
                 </exclusion>
             </exclusions>
         </dependency>
-
-
-
+        <dependency>
+            <groupId>org.apache.zookeeper</groupId>
+            <artifactId>zookeeper</artifactId>
+            <version>3.3.6</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>log4j</artifactId>
+                    <groupId>log4j</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
     </dependencies>
+
 
     <build>
         <finalName>${project.artifactId}</finalName>
@@ -483,7 +503,14 @@
             </plugin>
         </plugins>
     </build>
+
     <distributionManagement>
+
+        <!--<repository>-->
+        <!--<id>local-nexus-releases</id>-->
+        <!--<name>User Project Release</name>-->
+        <!--<url> http://maven.aliyun.com/nexus/content/groups/public/</url>-->
+        <!--</repository>-->
         <repository>
             <id>local-nexus-releases</id>
             <name>User Project Release</name>
